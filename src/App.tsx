@@ -7,20 +7,20 @@ function App() {
 	const [employee, setEmployee] = useState();
 
 	const getEmployee = () => {
-		fetch("https://randomuser.me/api?nat=en")
+		fetch("http://localhost:3310/api/employees")
 			.then((response) => response.json())
 			.then((data) => {
-				setEmployee(data.results[0]);
+				setEmployee(data.results);
 			});
 	};
 
 	useEffect(() => {
 		getEmployee();
-	}, []);
+	});
 
 	return (
 		<>
-			<EmployeeCard employee={employee} />
+			{employee ? <EmployeeCard employee={employee} /> : <p>Loading...</p>}
 			<button type="button" onClick={getEmployee}>
 				Get employee
 			</button>

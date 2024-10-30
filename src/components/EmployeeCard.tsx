@@ -12,7 +12,7 @@ interface EmployeeCardProps {
 }
 
 function EmployeeCard({ employee }: EmployeeCardProps) {
-	return employee ? (
+	return (
 		<figure className="DisplayEmployee">
 			<img src={employee.picture.medium} alt={employee.name.first} />
 			<figcaption>
@@ -22,8 +22,6 @@ function EmployeeCard({ employee }: EmployeeCardProps) {
 				{employee.email}
 			</figcaption>
 		</figure>
-	) : (
-		<p>Loading...</p>
 	);
 }
 
